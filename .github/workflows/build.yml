@@ -17,7 +17,7 @@ jobs:
     - name: Extract CHANGELOG
       run: sed '/^$/q' CHANGELOG > build/libs/README
 
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v3
       with:
         name: All binaries
         path: build/libs
@@ -44,7 +44,7 @@ jobs:
         APPLE_USER: ${{ secrets.APPLE_USER }}
         APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
 
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v3
       with:
         name: macOS binary
         path: build/libs
@@ -61,7 +61,7 @@ jobs:
         architecture: x64
     - run: ./gradlew test win-installer --info
 
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v3
       with:
         name: Windows installer
         path: build/libs
